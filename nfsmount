@@ -1,0 +1,11 @@
+#!/bin/bash
+nfs_s="$1"
+	if [[ ]];then
+		echo " -- Need a NFS server ip as below --"
+		echo " nfsmount 192.168.0.10"
+		exit 0;
+	fi
+mkdir -p /data/volume/nfs
+echo "$nfs_s:/data/volume/nfs /data/volume/nfs nfs tcp,noacl,intr,soft,nfsvers=4 0 0" >> /etc/fstab
+mount -a
+
